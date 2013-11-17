@@ -1,0 +1,63 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Grapher</title>
+        <link rel="stylesheet" href="style/graph.css">
+        <script src="scripts/graph.js"></script>
+        <script src="scripts/jquery-1.6.2.min.js"></script>
+        <script src="scripts/evalEqn.js"></script>
+    </head>
+    <body>
+    	
+    	<div id = "headerDiv">
+    		
+    	</div>
+    	
+    	<div id="infoDiv">
+    		<p>Enter the equation</p>
+    		<span style="font-family:Times;font-size: 2em "> y = </span>
+    		<input id="equation" type="text" onchange="startDraw();"> <br>
+    		<button id="submit" >Draw </button>
+    		<br>
+    		
+    		<label for="Xscale">Scaling in x-axis :</label>
+		<select id="Xscale">
+			<option value="1">2</option>
+			<option value="5">5</option>
+			<option value="10" >10</option>
+			<option value="15">15</option>
+			<option value="20" selected="selected">20</option>
+			<option value="30">30</option>
+			<option value="50">50</option>
+
+		</select><br/>
+		<label for="Yscale">Scaling in y-axis :</label>
+		<select id="Yscale">
+			<option value="1">2</option>
+			<option value="5">5</option>
+			<option value="10" >10</option>
+			<option value="15">15</option>
+			<option value="20" selected="selected">20</option>
+			<option value="30">30</option>
+			<option value="50">50</option>
+
+		</select><br/>
+    	</div>
+    	
+    	<div id="canvasDiv">
+    		<canvas id="canvas" width='700' height="700">
+    			
+    		</canvas>
+    	</div>
+    	
+    	<div id="view">
+    		<p> x = <input type="text" id='X' onchange="yvalue(this);"> ->  y = <span id='valueOfX' style="color:rgb(150,170,190);font-size:1.3em"> </span> </p>
+    		
+    		<p>dy/dx at x = <input type='text' id="ddx" width=5 onchange="DDX(this)"> : <span id="valueOfddx" style="color:rgb(150,170,190);font-size:1.3em"> </span></p>	
+    		<button id="drawSlope" onclick="drawSlope();">Draw Slope</button>
+    	</div>
+    	
+    </body>
+</html>
